@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Base learn</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- learning use multiple vue instance -->
+    <div id="app">
+        {{ name }} <br>
+        <button @click="changeText">Click</button>
+    </div>
+
+    <div id="app-1">
+        {{ name }} <br>
+        <button @click="changeText">Click</button>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+               name: "saru"
+            },
+            methods: {
+                changeText(){
+                    app1.name = "saru updated"
+                }
+            },
+        })
+
+
+        const app1 = new Vue({
+            el: '#app-1',
+            data: {
+               name: "saru1"
+            },
+            methods: {
+                changeText(){
+                    app.name = "saru1 updated"
+                }
+            },
+        })
+    </script>
+    
+</body>
+</html>

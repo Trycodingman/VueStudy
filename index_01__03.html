@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Base learn</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ nextYear('Hello') }}
+
+        <!-- v-bind 없이 ':'만 넣어도 작동된다. -->
+        <input v-bind:type="type" :value="inputData">
+        <a :href="link">cozy channel</a>
+        <a :href="youtubeLinkTest('kossiecoder')">Test channel</a>
+    </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data:{
+                    person:{
+                        name: 'cozy code',
+                        age: 34
+                    },
+                    inputData: 'Hello',
+                    type:'text',
+                    link:'https://www.youtube.com/'
+                },
+                methods: {
+                    // 여기서 function은 생략이 가능하다. 
+                    youtubeLinkTest(channel) {
+                        return this.link + channel;
+                    },
+
+                    nextYear(greeting) {
+                        return greeting + '! ' + this.person.name + '는 내년에' + (this.person.age + 1) + '살 입니다';
+                    },
+
+                    otherMethod: function() {
+                        this.nextYear
+                    }
+                }
+            })
+        </script>
+    
+</body>
+</html>

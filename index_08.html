@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Base learn</title>
+    <style>
+        .red {
+            color: red;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 클래스 & 스타일 바인딩을 배워보자!!  -->
+    <div id="app">
+       <!-- <div :class="{red:isRed, 'font-bold': isBold}">Hello</div> -->
+       <div :style="{color:red, fontSize: size}">Hello</div>
+       <button @click="update">Click</button>
+    </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data:{
+                    // isRed:false,
+                    // isBold:false
+                    red: 'red',
+                    size: '30px'
+                },
+                methods: {
+                    update(){
+                        this.isRed = !this.isRed
+                        this.isBold = !this.isBold
+                    }
+                },
+            })
+        </script>
+    
+</body>
+</html>
